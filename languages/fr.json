@@ -1,1 +1,143 @@
-{}
+{
+  "page": {
+    "title": "Son Latino | Orchestre salsa à Genève",
+    "description": "Son Latino, orchestre salsa à Genève pour mariages, anniversaires, festivals, restaurants, entreprises et événements privés."
+  },
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Prestations",
+    "gallery": "Galerie",
+    "events": "Événements",
+    "contact": "Contact",
+    "contactButton": "Nous contacter"
+  },
+  "hero": {
+    "image": "Orchestre Son Latino en concert devant un public",
+    "label": "Orchestre salsa live à Genève",
+    "title": "Faites vibrer votre événement au rythme de la salsa",
+    "description": "Concerts, mariages, anniversaires, festivals et soirées privées : Son Latino transforme chaque événement en un véritable moment de fête.",
+    "primaryButton": "Demander un devis",
+    "secondaryButton": "Découvrir nos prestations",
+    "location": "Genève et Suisse romande",
+    "live": "Musique 100 % live",
+    "events": "Événements privés et publics",
+    "scrollText": "Découvrir"
+  },
+  "about": {
+    "image": "Les membres de Son Latino travaillant en studio",
+    "badge": "Passion et travail",
+    "label": "Bien plus qu’un orchestre",
+    "title": "Une équipe passionnée au service de votre événement",
+    "text1": "Son Latino réunit des musiciens passionnés par la salsa et les sonorités latines. Chaque prestation est préparée avec sérieux pour proposer une expérience musicale chaleureuse, vivante et professionnelle.",
+    "text2": "Répétitions, arrangements et préparation technique : notre équipe travaille chaque détail pour créer un spectacle adapté à votre public et à votre événement.",
+    "button": "Découvrir notre univers"
+  },
+  "services": {
+    "label": "Nos prestations",
+    "title": "Une ambiance live adaptée à chaque occasion",
+    "description": "De la réception élégante à la grande fête populaire, nous adaptons notre prestation à votre lieu, votre public et votre projet.",
+    "images": {
+      "wedding": "Son Latino animant un mariage",
+      "festival": "Son Latino jouant lors d’un événement en plein air",
+      "club": "Son Latino en concert dans un club",
+      "restaurant": "Son Latino jouant dans un restaurant spectacle"
+    },
+    "wedding": {
+      "title": "Mariages",
+      "text": "Une animation musicale élégante et festive pour faire danser vos invités."
+    },
+    "festival": {
+      "title": "Festivals et open air",
+      "text": "Une énergie communicative pour les scènes, festivals et événements extérieurs."
+    },
+    "club": {
+      "title": "Clubs et soirées privées",
+      "text": "Un concert rythmé pour créer une véritable ambiance latine jusqu’au bout de la nuit."
+    },
+    "restaurant": {
+      "title": "Restaurants et spectacles",
+      "text": "Une prestation chaleureuse pour accompagner un dîner, un cabaret ou une soirée spéciale."
+    }
+  },
+  "gallery": {
+    "label": "Notre univers",
+    "title": "Des moments de musique, de partage et de fête",
+    "image1": "Concert de Son Latino sur scène",
+    "image2": "Concert de Son Latino au bord d’un lac",
+    "image3": "Animation musicale pendant un mariage",
+    "image4": "Concert salsa dans une discothèque",
+    "image5": "Concert dans un restaurant théâtre",
+    "image6": "Travail musical de Son Latino en studio"
+  },
+  "events": {
+    "label": "Prochaines dates",
+    "title": "Retrouvez Son Latino en concert",
+    "description": "Découvrez nos prochains événements publics et venez partager avec nous l’énergie de la salsa live.",
+    "months": {
+      "august": "AOÛT",
+      "september": "SEPT.",
+      "october": "OCT."
+    },
+    "categories": {
+      "festival": "Festival",
+      "concert": "Concert",
+      "show": "Spectacle"
+    },
+    "items": {
+      "festivalTitle": "Festival Latino Genève",
+      "lakeTitle": "Soirée Salsa au bord du lac",
+      "tropicalTitle": "Nuit Tropicale",
+      "geneva": "Genève",
+      "lausanne": "Lausanne"
+    },
+    "button": "Organiser un événement"
+  },
+  "contact": {
+    "label": "Parlons de votre projet",
+    "title": "Prêt à faire danser vos invités ?",
+    "description": "Expliquez-nous votre événement, sa date, son lieu et l’ambiance recherchée. Notre équipe vous répondra avec une proposition adaptée.",
+    "phoneLabel": "Téléphone",
+    "emailLabel": "E-mail",
+    "locationLabel": "Localisation",
+    "location": "Genève, Suisse",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
+      "event": "Type d’événement",
+      "select": "Sélectionner",
+      "wedding": "Mariage",
+      "birthday": "Anniversaire",
+      "company": "Événement d’entreprise",
+      "festival": "Festival ou open air",
+      "restaurant": "Restaurant ou spectacle",
+      "other": "Autre",
+      "date": "Date souhaitée",
+      "message": "Parlez-nous de votre événement",
+      "submit": "Envoyer ma demande"
+    }
+  },
+  "footer": {
+    "description": "L’énergie de la salsa live pour tous vos événements.",
+    "rights": "Tous droits réservés."
+  },
+  "accessibility": {
+    "mainNavigation": "Navigation principale",
+    "brand": "Retour à l’accueil",
+    "languageSwitcher": "Sélectionner la langue",
+    "frenchLanguage": "Afficher le site en français",
+    "spanishLanguage": "Afficher le site en espagnol",
+    "menu": "Ouvrir le menu",
+    "heroFeatures": "Informations principales",
+    "scroll": "Découvrir la section suivante",
+    "eventFestival": "Obtenir des informations sur le Festival Latino Genève",
+    "eventLake": "Obtenir des informations sur la soirée salsa",
+    "eventTropical": "Obtenir des informations sur la Nuit Tropicale",
+    "footerNavigation": "Navigation du pied de page",
+    "facebook": "Page Facebook de Son Latino",
+    "instagram": "Instagram de Son Latino",
+    "whatsapp": "Contacter Son Latino sur WhatsApp",
+    "tooltipWhatsapp": "Contactez-nous sur WhatsApp"
+  }
+}

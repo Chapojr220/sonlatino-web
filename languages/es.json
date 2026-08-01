@@ -1,1 +1,143 @@
-{}
+{
+  "page": {
+    "title": "Son Latino | Orquesta de salsa en Ginebra",
+    "description": "Son Latino, orquesta de salsa en Ginebra para bodas, cumpleaños, festivales, restaurantes, empresas y eventos privados."
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "gallery": "Galería",
+    "events": "Eventos",
+    "contact": "Contacto",
+    "contactButton": "Contáctanos"
+  },
+  "hero": {
+    "image": "Orquesta Son Latino en concierto frente al público",
+    "label": "Orquesta de salsa en vivo en Ginebra",
+    "title": "Haz vibrar tu evento al ritmo de la salsa",
+    "description": "Conciertos, bodas, cumpleaños, festivales y eventos privados: Son Latino convierte cada celebración en una auténtica fiesta.",
+    "primaryButton": "Solicitar un presupuesto",
+    "secondaryButton": "Descubrir nuestros servicios",
+    "location": "Ginebra y la Suiza francófona",
+    "live": "Música 100 % en vivo",
+    "events": "Eventos privados y públicos",
+    "scrollText": "Descubrir"
+  },
+  "about": {
+    "image": "Los miembros de Son Latino trabajando en el estudio",
+    "badge": "Pasión y dedicación",
+    "label": "Mucho más que una orquesta",
+    "title": "Un equipo apasionado al servicio de tu evento",
+    "text1": "Son Latino reúne a músicos apasionados por la salsa y los sonidos latinos. Cada actuación se prepara con seriedad para ofrecer una experiencia musical cálida, dinámica y profesional.",
+    "text2": "Ensayos, arreglos y preparación técnica: nuestro equipo cuida cada detalle para crear un espectáculo adaptado a tu público y a tu evento.",
+    "button": "Descubrir nuestro universo"
+  },
+  "services": {
+    "label": "Nuestros servicios",
+    "title": "Un ambiente en vivo adaptado a cada ocasión",
+    "description": "Desde una recepción elegante hasta una gran fiesta popular, adaptamos nuestra actuación al lugar, al público y al tipo de evento.",
+    "images": {
+      "wedding": "Son Latino animando una boda",
+      "festival": "Son Latino actuando en un evento al aire libre",
+      "club": "Son Latino en concierto en un club",
+      "restaurant": "Son Latino actuando en un restaurante con espectáculo"
+    },
+    "wedding": {
+      "title": "Bodas",
+      "text": "Una animación musical elegante y festiva para hacer bailar a todos tus invitados."
+    },
+    "festival": {
+      "title": "Festivales y eventos al aire libre",
+      "text": "Una energía contagiosa para escenarios, festivales y eventos al aire libre."
+    },
+    "club": {
+      "title": "Clubes y eventos privados",
+      "text": "Un concierto lleno de ritmo para crear un auténtico ambiente latino hasta el final de la noche."
+    },
+    "restaurant": {
+      "title": "Restaurantes y espectáculos",
+      "text": "Una actuación cálida para acompañar una cena, un cabaret o una velada especial."
+    }
+  },
+  "gallery": {
+    "label": "Nuestro universo",
+    "title": "Momentos de música, encuentro y celebración",
+    "image1": "Concierto de Son Latino en el escenario",
+    "image2": "Concierto de Son Latino junto a un lago",
+    "image3": "Animación musical durante una boda",
+    "image4": "Concierto de salsa en una discoteca",
+    "image5": "Concierto en un restaurante teatro",
+    "image6": "Trabajo musical de Son Latino en el estudio"
+  },
+  "events": {
+    "label": "Próximas fechas",
+    "title": "Ven a disfrutar de Son Latino en concierto",
+    "description": "Descubre nuestros próximos eventos públicos y comparte con nosotros toda la energía de la salsa en vivo.",
+    "months": {
+      "august": "AGO.",
+      "september": "SEP.",
+      "october": "OCT."
+    },
+    "categories": {
+      "festival": "Festival",
+      "concert": "Concierto",
+      "show": "Espectáculo"
+    },
+    "items": {
+      "festivalTitle": "Festival Latino de Ginebra",
+      "lakeTitle": "Noche de salsa junto al lago",
+      "tropicalTitle": "Noche Tropical",
+      "geneva": "Ginebra",
+      "lausanne": "Lausana"
+    },
+    "button": "Organizar un evento"
+  },
+  "contact": {
+    "label": "Hablemos de tu proyecto",
+    "title": "¿Listo para hacer bailar a tus invitados?",
+    "description": "Cuéntanos sobre tu evento, la fecha, el lugar y el ambiente que deseas. Nuestro equipo te responderá con una propuesta adaptada a tus necesidades.",
+    "phoneLabel": "Teléfono",
+    "emailLabel": "Correo electrónico",
+    "locationLabel": "Ubicación",
+    "location": "Ginebra, Suiza",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Número de teléfono",
+      "event": "Tipo de evento",
+      "select": "Seleccionar",
+      "wedding": "Boda",
+      "birthday": "Cumpleaños",
+      "company": "Evento de empresa",
+      "festival": "Festival o evento al aire libre",
+      "restaurant": "Restaurante o espectáculo",
+      "other": "Otro",
+      "date": "Fecha deseada",
+      "message": "Cuéntanos sobre tu evento",
+      "submit": "Enviar mi solicitud"
+    }
+  },
+  "footer": {
+    "description": "La energía de la salsa en vivo para todos tus eventos.",
+    "rights": "Todos los derechos reservados."
+  },
+  "accessibility": {
+    "mainNavigation": "Navegación principal",
+    "brand": "Volver al inicio",
+    "languageSwitcher": "Seleccionar el idioma",
+    "frenchLanguage": "Mostrar el sitio en francés",
+    "spanishLanguage": "Mostrar el sitio en español",
+    "menu": "Abrir el menú",
+    "heroFeatures": "Información principal",
+    "scroll": "Descubrir la siguiente sección",
+    "eventFestival": "Obtener información sobre el Festival Latino de Ginebra",
+    "eventLake": "Obtener información sobre la noche de salsa",
+    "eventTropical": "Obtener información sobre la Noche Tropical",
+    "footerNavigation": "Navegación del pie de página",
+    "facebook": "Página de Facebook de Son Latino",
+    "instagram": "Instagram de Son Latino",
+    "whatsapp": "Contactar con Son Latino por WhatsApp",
+    "tooltipWhatsapp": "Contáctanos por WhatsApp"
+  }
+}

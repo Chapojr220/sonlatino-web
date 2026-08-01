@@ -6,63 +6,51 @@
 -->
 <html lang="fr">
   <head>
-    <!-- Permet d'afficher correctement les accents et caractères spéciaux -->
     <meta charset="UTF-8" />
-
-    <!-- Rend le site responsive sur mobile, tablette et ordinateur -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Titre affiché dans l'onglet du navigateur -->
-    <title>Son Latino | Orchestre salsa à Genève</title>
+    <title data-i18n-title="page.title">
+      Son Latino | Orchestre salsa à Genève
+    </title>
 
-    <!-- Description utilisée par les moteurs de recherche -->
     <meta
       name="description"
       content="Son Latino, orchestre salsa à Genève pour mariages, anniversaires, festivals, restaurants, entreprises et événements privés."
+      data-i18n-content="page.description"
     />
 
-    <!--
-      Préconnexion à Google Fonts :
-      cela accélère légèrement le chargement des polices.
-    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!--
-      Lobster Two :
-      identité visuelle, logo typographique et grands titres.
-
-      Poppins :
-      textes, boutons et navigation.
-    -->
     <link
       href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!--
-      Font Awesome :
-      bibliothèque d'icônes pour WhatsApp, téléphone,
-      calendrier, localisation et réseaux sociaux.
-    -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
 
-    <!-- Notre fichier CSS principal -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Bibliothèque i18next -->
-    <script src="https://unpkg.com/i18next@23.16.5/dist/umd/i18next.min.js"></script>
+    <!-- Bibliothèques i18next -->
+    <script
+      src="https://unpkg.com/i18next@23.16.5/dist/umd/i18next.min.js"
+      defer
+    ></script>
 
-    <!-- Chargement des fichiers JSON -->
-    <script src="https://unpkg.com/i18next-http-backend@2.6.2/i18nextHttpBackend.min.js"></script>
+    <script
+      src="https://unpkg.com/i18next-http-backend@2.6.2/i18nextHttpBackend.min.js"
+      defer
+    ></script>
 
-    <!-- Détection automatique de la langue -->
-    <script src="https://unpkg.com/i18next-browser-languagedetector@8.0.0/i18nextBrowserLanguageDetector.min.js"></script>
+    <script
+      src="https://unpkg.com/i18next-browser-languagedetector@8.0.0/i18nextBrowserLanguageDetector.min.js"
+      defer
+    ></script>
 
-    <!-- Nos scripts -->
+    <!-- Scripts du projet -->
     <script src="js/main.js" defer></script>
     <script src="js/language.js" defer></script>
   </head>
@@ -70,55 +58,62 @@
   <body>
     <!-- ======================================================
          HEADER / NAVBAR
-         La navbar restera visible pendant le scroll grâce au CSS.
     ======================================================= -->
     <header class="header">
-      <nav class="navbar" aria-label="Navigation principale">
-        <!-- Logo typographique : aucun fichier image n'est utilisé -->
+      <nav
+        class="navbar"
+        aria-label="Navigation principale"
+        data-i18n-aria-label="accessibility.mainNavigation"
+      >
         <a
           href="index.html#accueil"
           class="brand"
-          aria-label="Retour à l'accueil"
+          aria-label="Retour à l’accueil"
+          data-i18n-aria-label="accessibility.brand"
         >
           <span class="brand-text">Son Latino</span>
         </a>
 
-        <!-- Navigation desktop et futur menu mobile -->
         <ul class="nav-links" id="nav-links">
           <li>
-            <a href="#accueil" data-i18n="nav_home">Accueil</a>
+            <a href="#accueil" data-i18n="navigation.home">Accueil</a>
           </li>
 
           <li>
-            <a href="#apropos" data-i18n="nav_about">À propos</a>
+            <a href="#apropos" data-i18n="navigation.about">À propos</a>
           </li>
 
           <li>
-            <a href="#prestations" data-i18n="nav_services"> Prestations </a>
+            <a href="#prestations" data-i18n="navigation.services">
+              Prestations
+            </a>
           </li>
 
           <li>
-            <a href="#galerie" data-i18n="nav_gallery">Galerie</a>
+            <a href="#galerie" data-i18n="navigation.gallery">Galerie</a>
           </li>
 
           <li>
-            <a href="#evenements" data-i18n="nav_events"> Événements </a>
+            <a href="#evenements" data-i18n="navigation.events"> Événements </a>
           </li>
 
           <li>
-            <a href="#contact" data-i18n="nav_contact">Contact</a>
+            <a href="#contact" data-i18n="navigation.contact">Contact</a>
           </li>
         </ul>
 
-        <!-- Partie droite de la navbar -->
         <div class="navbar-actions">
-          <!-- Sélecteur de langue -->
-          <div class="language-switcher" aria-label="Sélectionner la langue">
+          <div
+            class="language-switcher"
+            aria-label="Sélectionner la langue"
+            data-i18n-aria-label="accessibility.languageSwitcher"
+          >
             <button
               type="button"
               class="language-button active"
               data-language="fr"
               aria-label="Afficher le site en français"
+              data-i18n-aria-label="accessibility.frenchLanguage"
             >
               FR
             </button>
@@ -129,23 +124,27 @@
               type="button"
               class="language-button"
               data-language="es"
-              aria-label="Mostrar el sitio en español"
+              aria-label="Afficher le site en espagnol"
+              data-i18n-aria-label="accessibility.spanishLanguage"
             >
               ES
             </button>
           </div>
 
-          <!-- Appel à l'action principal -->
-          <a href="#contact" class="navbar-cta" data-i18n="nav_contact_button">
+          <a
+            href="#contact"
+            class="navbar-cta"
+            data-i18n="navigation.contactButton"
+          >
             Nous contacter
           </a>
 
-          <!-- Bouton hamburger affiché sur mobile -->
           <button
             type="button"
             class="menu-button"
             id="menu-button"
             aria-label="Ouvrir le menu"
+            data-i18n-aria-label="accessibility.menu"
             aria-controls="nav-links"
             aria-expanded="false"
           >
@@ -157,35 +156,31 @@
       </nav>
     </header>
 
-    <!-- Contenu principal du site -->
     <main>
       <!-- ======================================================
            SECTION 1 : HERO
-           Première section visible par le visiteur.
       ======================================================= -->
       <section id="accueil" class="hero section-full">
-        <!-- Image utilisée comme vraie image HTML -->
         <img
           class="hero-background"
           src="images/image1.png"
           alt="Orchestre Son Latino en concert devant un public"
+          data-i18n-alt="hero.image"
         />
 
-        <!-- Couche décorative entre l'image et le texte -->
         <div class="hero-overlay"></div>
 
-        <!-- Contenu du Hero -->
         <div class="section-container hero-container">
           <div class="hero-content">
-            <p class="section-label" data-i18n="hero_label">
+            <p class="section-label" data-i18n="hero.label">
               Orchestre salsa live à Genève
             </p>
 
-            <h1 data-i18n="hero_title">
+            <h1 data-i18n="hero.title">
               Faites vibrer votre événement au rythme de la salsa
             </h1>
 
-            <p class="hero-description" data-i18n="hero_description">
+            <p class="hero-description" data-i18n="hero.description">
               Concerts, mariages, anniversaires, festivals et soirées privées :
               Son Latino transforme chaque événement en un véritable moment de
               fête.
@@ -195,7 +190,7 @@
               <a
                 href="#contact"
                 class="button button-primary"
-                data-i18n="hero_primary_button"
+                data-i18n="hero.primaryButton"
               >
                 Demander un devis
               </a>
@@ -203,86 +198,87 @@
               <a
                 href="#prestations"
                 class="button button-secondary"
-                data-i18n="hero_secondary_button"
+                data-i18n="hero.secondaryButton"
               >
                 Découvrir nos prestations
               </a>
             </div>
 
-            <!-- Informations rapides -->
-            <ul class="hero-features" aria-label="Informations principales">
+            <ul
+              class="hero-features"
+              aria-label="Informations principales"
+              data-i18n-aria-label="accessibility.heroFeatures"
+            >
               <li>
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span data-i18n="hero_location">
+                <span data-i18n="hero.location">
                   Genève et Suisse romande
                 </span>
               </li>
 
               <li>
                 <i class="fa-solid fa-music" aria-hidden="true"></i>
-                <span data-i18n="hero_live">Musique 100 % live</span>
+                <span data-i18n="hero.live">Musique 100 % live</span>
               </li>
 
               <li>
                 <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>
-                <span data-i18n="hero_events"
-                  >Événements privés et publics</span
-                >
+                <span data-i18n="hero.events">
+                  Événements privés et publics
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <!-- Invitation à continuer le scroll -->
         <a
           href="#apropos"
           class="scroll-indicator"
           aria-label="Découvrir la section suivante"
+          data-i18n-aria-label="accessibility.scroll"
         >
-          <span data-i18n="scroll_text">Découvrir</span>
+          <span data-i18n="hero.scrollText">Découvrir</span>
           <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
         </a>
       </section>
 
       <!-- ======================================================
            SECTION 2 : À PROPOS
-           L'image du studio montre le travail et le sérieux du groupe.
       ======================================================= -->
       <section id="apropos" class="about section-full">
         <div class="section-container about-container">
-          <!-- Partie image -->
           <div class="about-image-wrapper">
             <img
               src="images/image6.png"
               alt="Les membres de Son Latino travaillant en studio"
+              data-i18n-alt="about.image"
               class="about-image"
               loading="lazy"
             />
 
             <div class="about-badge">
               <i class="fa-solid fa-music" aria-hidden="true"></i>
-              <span data-i18n="about_badge">Passion et travail</span>
+              <span data-i18n="about.badge">Passion et travail</span>
             </div>
           </div>
 
-          <!-- Partie texte -->
           <div class="about-content">
-            <p class="section-label" data-i18n="about_label">
+            <p class="section-label" data-i18n="about.label">
               Bien plus qu’un orchestre
             </p>
 
-            <h2 data-i18n="about_title">
+            <h2 data-i18n="about.title">
               Une équipe passionnée au service de votre événement
             </h2>
 
-            <p data-i18n="about_text_1">
+            <p data-i18n="about.text1">
               Son Latino réunit des musiciens passionnés par la salsa et les
               sonorités latines. Chaque prestation est préparée avec sérieux
               pour proposer une expérience musicale chaleureuse, vivante et
               professionnelle.
             </p>
 
-            <p data-i18n="about_text_2">
+            <p data-i18n="about.text2">
               Répétitions, arrangements et préparation technique : notre équipe
               travaille chaque détail pour créer un spectacle adapté à votre
               public et à votre événement.
@@ -291,7 +287,7 @@
             <a
               href="#galerie"
               class="button button-primary"
-              data-i18n="about_button"
+              data-i18n="about.button"
             >
               Découvrir notre univers
             </a>
@@ -301,32 +297,30 @@
 
       <!-- ======================================================
            SECTION 3 : PRESTATIONS
-           Présentation des principales occasions.
       ======================================================= -->
       <section id="prestations" class="services section-full">
         <div class="section-container">
           <div class="section-heading">
-            <p class="section-label" data-i18n="services_label">
+            <p class="section-label" data-i18n="services.label">
               Nos prestations
             </p>
 
-            <h2 data-i18n="services_title">
+            <h2 data-i18n="services.title">
               Une ambiance live adaptée à chaque occasion
             </h2>
 
-            <p data-i18n="services_description">
+            <p data-i18n="services.description">
               De la réception élégante à la grande fête populaire, nous adaptons
               notre prestation à votre lieu, votre public et votre projet.
             </p>
           </div>
 
-          <!-- Grille des prestations -->
           <div class="services-grid">
-            <!-- Mariages -->
             <article class="service-card">
               <img
                 src="images/image3.png"
                 alt="Son Latino animant un mariage"
+                data-i18n-alt="services.images.wedding"
                 loading="lazy"
               />
 
@@ -334,21 +328,20 @@
 
               <div class="service-content">
                 <span class="service-number">01</span>
+                <h3 data-i18n="services.wedding.title">Mariages</h3>
 
-                <h3 data-i18n="service_wedding_title">Mariages</h3>
-
-                <p data-i18n="service_wedding_text">
+                <p data-i18n="services.wedding.text">
                   Une animation musicale élégante et festive pour faire danser
                   vos invités.
                 </p>
               </div>
             </article>
 
-            <!-- Open Air -->
             <article class="service-card">
               <img
                 src="images/image2.png"
-                alt="Son Latino jouant lors d'un événement en plein air"
+                alt="Son Latino jouant lors d’un événement en plein air"
+                data-i18n-alt="services.images.festival"
                 loading="lazy"
               />
 
@@ -357,22 +350,22 @@
               <div class="service-content">
                 <span class="service-number">02</span>
 
-                <h3 data-i18n="service_festival_title">
+                <h3 data-i18n="services.festival.title">
                   Festivals et open air
                 </h3>
 
-                <p data-i18n="service_festival_text">
+                <p data-i18n="services.festival.text">
                   Une énergie communicative pour les scènes, festivals et
                   événements extérieurs.
                 </p>
               </div>
             </article>
 
-            <!-- Clubs -->
             <article class="service-card">
               <img
                 src="images/image4.png"
                 alt="Son Latino en concert dans un club"
+                data-i18n-alt="services.images.club"
                 loading="lazy"
               />
 
@@ -381,20 +374,22 @@
               <div class="service-content">
                 <span class="service-number">03</span>
 
-                <h3 data-i18n="service_club_title">Clubs et soirées privées</h3>
+                <h3 data-i18n="services.club.title">
+                  Clubs et soirées privées
+                </h3>
 
-                <p data-i18n="service_club_text">
+                <p data-i18n="services.club.text">
                   Un concert rythmé pour créer une véritable ambiance latine
                   jusqu’au bout de la nuit.
                 </p>
               </div>
             </article>
 
-            <!-- Restaurants et cabarets -->
             <article class="service-card">
               <img
                 src="images/image5.png"
                 alt="Son Latino jouant dans un restaurant spectacle"
+                data-i18n-alt="services.images.restaurant"
                 loading="lazy"
               />
 
@@ -403,11 +398,11 @@
               <div class="service-content">
                 <span class="service-number">04</span>
 
-                <h3 data-i18n="service_restaurant_title">
+                <h3 data-i18n="services.restaurant.title">
                   Restaurants et spectacles
                 </h3>
 
-                <p data-i18n="service_restaurant_text">
+                <p data-i18n="services.restaurant.text">
                   Une prestation chaleureuse pour accompagner un dîner, un
                   cabaret ou une soirée spéciale.
                 </p>
@@ -419,14 +414,13 @@
 
       <!-- ======================================================
            SECTION 4 : GALERIE
-           Les six images sont présentées dans une galerie.
       ======================================================= -->
       <section id="galerie" class="gallery section-full">
         <div class="section-container">
           <div class="section-heading">
-            <p class="section-label" data-i18n="gallery_label">Notre univers</p>
+            <p class="section-label" data-i18n="gallery.label">Notre univers</p>
 
-            <h2 data-i18n="gallery_title">
+            <h2 data-i18n="gallery.title">
               Des moments de musique, de partage et de fête
             </h2>
           </div>
@@ -436,6 +430,7 @@
               <img
                 src="images/image1.png"
                 alt="Concert de Son Latino sur scène"
+                data-i18n-alt="gallery.image1"
                 loading="lazy"
               />
             </figure>
@@ -443,7 +438,8 @@
             <figure class="gallery-item">
               <img
                 src="images/image2.png"
-                alt="Concert Son Latino au bord d'un lac"
+                alt="Concert de Son Latino au bord d’un lac"
+                data-i18n-alt="gallery.image2"
                 loading="lazy"
               />
             </figure>
@@ -452,6 +448,7 @@
               <img
                 src="images/image3.png"
                 alt="Animation musicale pendant un mariage"
+                data-i18n-alt="gallery.image3"
                 loading="lazy"
               />
             </figure>
@@ -460,6 +457,7 @@
               <img
                 src="images/image4.png"
                 alt="Concert salsa dans une discothèque"
+                data-i18n-alt="gallery.image4"
                 loading="lazy"
               />
             </figure>
@@ -468,6 +466,7 @@
               <img
                 src="images/image5.png"
                 alt="Concert dans un restaurant théâtre"
+                data-i18n-alt="gallery.image5"
                 loading="lazy"
               />
             </figure>
@@ -476,6 +475,7 @@
               <img
                 src="images/image6.png"
                 alt="Travail musical de Son Latino en studio"
+                data-i18n-alt="gallery.image6"
                 loading="lazy"
               />
             </figure>
@@ -485,42 +485,42 @@
 
       <!-- ======================================================
            SECTION 5 : ÉVÉNEMENTS
-           Les événements sont simulés pour préparer le futur CMS.
       ======================================================= -->
       <section id="evenements" class="events section-full">
         <div class="section-container">
           <div class="section-heading">
-            <p class="section-label" data-i18n="events_label">
+            <p class="section-label" data-i18n="events.label">
               Prochaines dates
             </p>
 
-            <h2 data-i18n="events_title">Retrouvez Son Latino en concert</h2>
+            <h2 data-i18n="events.title">Retrouvez Son Latino en concert</h2>
 
-            <p data-i18n="events_description">
+            <p data-i18n="events.description">
               Découvrez nos prochains événements publics et venez partager avec
               nous l’énergie de la salsa live.
             </p>
           </div>
 
-          <!--
-            Ces cartes sont provisoires.
-            Plus tard, elles seront générées automatiquement
-            grâce aux données enregistrées dans le CMS.
-          -->
           <div class="events-grid" id="events-grid">
-            <!-- Événement 1 -->
             <article class="event-card">
               <div class="event-date">
                 <span class="event-day">15</span>
-                <span class="event-month" data-i18n="month_august"> AOÛT </span>
+                <span class="event-month" data-i18n="events.months.august">
+                  AOÛT
+                </span>
               </div>
 
               <div class="event-content">
-                <p class="event-category" data-i18n="event_category_festival">
+                <p
+                  class="event-category"
+                  data-i18n="events.categories.festival"
+                >
                   Festival
                 </p>
 
-                <h3>Festival Latino Genève</h3>
+                <h3 data-i18n="events.items.festivalTitle">
+                  Festival Latino Genève
+                </h3>
 
                 <ul class="event-information">
                   <li>
@@ -530,7 +530,7 @@
 
                   <li>
                     <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                    Genève
+                    <span data-i18n="events.items.geneva">Genève</span>
                   </li>
                 </ul>
               </div>
@@ -539,26 +539,28 @@
                 href="#contact"
                 class="event-link"
                 aria-label="Obtenir des informations sur le Festival Latino Genève"
+                data-i18n-aria-label="accessibility.eventFestival"
               >
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Événement 2 -->
             <article class="event-card">
               <div class="event-date">
                 <span class="event-day">05</span>
-                <span class="event-month" data-i18n="month_september">
+                <span class="event-month" data-i18n="events.months.september">
                   SEPT.
                 </span>
               </div>
 
               <div class="event-content">
-                <p class="event-category" data-i18n="event_category_concert">
+                <p class="event-category" data-i18n="events.categories.concert">
                   Concert
                 </p>
 
-                <h3>Soirée Salsa au bord du lac</h3>
+                <h3 data-i18n="events.items.lakeTitle">
+                  Soirée Salsa au bord du lac
+                </h3>
 
                 <ul class="event-information">
                   <li>
@@ -568,7 +570,7 @@
 
                   <li>
                     <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                    Genève
+                    <span data-i18n="events.items.geneva">Genève</span>
                   </li>
                 </ul>
               </div>
@@ -577,26 +579,26 @@
                 href="#contact"
                 class="event-link"
                 aria-label="Obtenir des informations sur la soirée salsa"
+                data-i18n-aria-label="accessibility.eventLake"
               >
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
             </article>
 
-            <!-- Événement 3 -->
             <article class="event-card">
               <div class="event-date">
                 <span class="event-day">24</span>
-                <span class="event-month" data-i18n="month_october">
+                <span class="event-month" data-i18n="events.months.october">
                   OCT.
                 </span>
               </div>
 
               <div class="event-content">
-                <p class="event-category" data-i18n="event_category_show">
+                <p class="event-category" data-i18n="events.categories.show">
                   Spectacle
                 </p>
 
-                <h3>Nuit Tropicale</h3>
+                <h3 data-i18n="events.items.tropicalTitle">Nuit Tropicale</h3>
 
                 <ul class="event-information">
                   <li>
@@ -606,7 +608,7 @@
 
                   <li>
                     <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                    Lausanne
+                    <span data-i18n="events.items.lausanne">Lausanne</span>
                   </li>
                 </ul>
               </div>
@@ -615,6 +617,7 @@
                 href="#contact"
                 class="event-link"
                 aria-label="Obtenir des informations sur la Nuit Tropicale"
+                data-i18n-aria-label="accessibility.eventTropical"
               >
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
@@ -625,7 +628,7 @@
             <a
               href="#contact"
               class="button button-secondary"
-              data-i18n="events_button"
+              data-i18n="events.button"
             >
               Organiser un événement
             </a>
@@ -634,20 +637,18 @@
       </section>
 
       <!-- ======================================================
-     SECTION 6 : CONTACT
-     Objectif final : faciliter la prise de contact.
-======================================================= -->
+           SECTION 6 : CONTACT
+      ======================================================= -->
       <section id="contact" class="contact section-full">
         <div class="section-container contact-container">
-          <!-- Texte et coordonnées -->
           <div class="contact-content">
-            <p class="section-label" data-i18n="contact_label">
+            <p class="section-label" data-i18n="contact.label">
               Parlons de votre projet
             </p>
 
-            <h2 data-i18n="contact_title">Prêt à faire danser vos invités ?</h2>
+            <h2 data-i18n="contact.title">Prêt à faire danser vos invités ?</h2>
 
-            <p data-i18n="contact_description">
+            <p data-i18n="contact.description">
               Expliquez-nous votre événement, sa date, son lieu et l’ambiance
               recherchée. Notre équipe vous répondra avec une proposition
               adaptée.
@@ -658,7 +659,7 @@
                 <i class="fa-solid fa-phone" aria-hidden="true"></i>
 
                 <div>
-                  <span data-i18n="contact_phone_label">Téléphone</span>
+                  <span data-i18n="contact.phoneLabel">Téléphone</span>
                   <a href="tel:+41787048874">+41 78 704 88 74</a>
                 </div>
               </li>
@@ -667,7 +668,7 @@
                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
 
                 <div>
-                  <span data-i18n="contact_email_label">E-mail</span>
+                  <span data-i18n="contact.emailLabel">E-mail</span>
 
                   <a href="mailto:concerts@son-latino.ch">
                     concerts@son-latino.ch
@@ -679,18 +680,18 @@
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
 
                 <div>
-                  <span data-i18n="contact_location_label"> Localisation </span>
-
-                  <p>Genève, Suisse</p>
+                  <span data-i18n="contact.locationLabel">Localisation</span>
+                  <p data-i18n="contact.location">Genève, Suisse</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          <!-- Formulaire de contact -->
           <form class="contact-form">
             <div class="form-group">
-              <label for="name" data-i18n="form_name"> Nom complet </label>
+              <label for="name" data-i18n="contact.form.name">
+                Nom complet
+              </label>
 
               <input
                 type="text"
@@ -702,7 +703,9 @@
             </div>
 
             <div class="form-group">
-              <label for="email" data-i18n="form_email"> Adresse e-mail </label>
+              <label for="email" data-i18n="contact.form.email">
+                Adresse e-mail
+              </label>
 
               <input
                 type="email"
@@ -714,7 +717,7 @@
             </div>
 
             <div class="form-group">
-              <label for="phone" data-i18n="form_phone">
+              <label for="phone" data-i18n="contact.form.phone">
                 Numéro de téléphone
               </label>
 
@@ -723,39 +726,49 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="event-type" data-i18n="form_event">
+                <label for="event-type" data-i18n="contact.form.event">
                   Type d’événement
                 </label>
 
                 <select id="event-type" name="event-type" required>
-                  <option value="" data-i18n="form_select">Sélectionner</option>
+                  <option value="" data-i18n="contact.form.select">
+                    Sélectionner
+                  </option>
 
-                  <option value="mariage" data-i18n="form_wedding">
+                  <option value="mariage" data-i18n="contact.form.wedding">
                     Mariage
                   </option>
 
-                  <option value="anniversaire" data-i18n="form_birthday">
+                  <option
+                    value="anniversaire"
+                    data-i18n="contact.form.birthday"
+                  >
                     Anniversaire
                   </option>
 
-                  <option value="entreprise" data-i18n="form_company">
+                  <option value="entreprise" data-i18n="contact.form.company">
                     Événement d’entreprise
                   </option>
 
-                  <option value="festival" data-i18n="form_festival">
+                  <option value="festival" data-i18n="contact.form.festival">
                     Festival ou open air
                   </option>
 
-                  <option value="restaurant" data-i18n="form_restaurant">
+                  <option
+                    value="restaurant"
+                    data-i18n="contact.form.restaurant"
+                  >
                     Restaurant ou spectacle
                   </option>
 
-                  <option value="autre" data-i18n="form_other">Autre</option>
+                  <option value="autre" data-i18n="contact.form.other">
+                    Autre
+                  </option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="event-date" data-i18n="form_date">
+                <label for="event-date" data-i18n="contact.form.date">
                   Date souhaitée
                 </label>
 
@@ -764,7 +777,7 @@
             </div>
 
             <div class="form-group">
-              <label for="message" data-i18n="form_message">
+              <label for="message" data-i18n="contact.form.message">
                 Parlez-nous de votre événement
               </label>
 
@@ -779,7 +792,7 @@
             <button
               type="submit"
               class="button button-primary form-submit"
-              data-i18n="form_submit"
+              data-i18n="contact.form.submit"
             >
               Envoyer ma demande
             </button>
@@ -789,24 +802,34 @@
     </main>
 
     <!-- ======================================================
-     FOOTER
-======================================================= -->
+         FOOTER
+    ======================================================= -->
     <footer class="footer">
       <div class="section-container footer-container">
         <div class="footer-brand">
           <a href="#accueil" class="brand">Son Latino</a>
 
-          <p data-i18n="footer_description">
+          <p data-i18n="footer.description">
             L’énergie de la salsa live pour tous vos événements.
           </p>
         </div>
 
-        <nav class="footer-navigation" aria-label="Navigation du pied de page">
-          <a href="#apropos" data-i18n="nav_about">À propos</a>
-          <a href="#prestations" data-i18n="nav_services">Prestations</a>
-          <a href="#galerie" data-i18n="nav_gallery">Galerie</a>
-          <a href="#evenements" data-i18n="nav_events">Événements</a>
-          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <nav
+          class="footer-navigation"
+          aria-label="Navigation du pied de page"
+          data-i18n-aria-label="accessibility.footerNavigation"
+        >
+          <a href="#apropos" data-i18n="navigation.about">À propos</a>
+
+          <a href="#prestations" data-i18n="navigation.services">
+            Prestations
+          </a>
+
+          <a href="#galerie" data-i18n="navigation.gallery">Galerie</a>
+
+          <a href="#evenements" data-i18n="navigation.events"> Événements </a>
+
+          <a href="#contact" data-i18n="navigation.contact">Contact</a>
         </nav>
 
         <div class="social-links">
@@ -815,19 +838,25 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Page Facebook de Son Latino"
+            data-i18n-aria-label="accessibility.facebook"
           >
             <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
           </a>
 
-          <a href="#" aria-label="Instagram de Son Latino">
+          <a
+            href="#"
+            aria-label="Instagram de Son Latino"
+            data-i18n-aria-label="accessibility.instagram"
+          >
             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
           </a>
 
           <a
-            href="https://wa.me/41787048874"
+            href="https://wa.me/41787048874?text=Bonjour%20Son%20Latino%2C%20je%20souhaite%20obtenir%20des%20informations."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contacter Son Latino sur WhatsApp"
+            data-i18n-aria-label="accessibility.whatsapp"
           >
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
           </a>
@@ -838,7 +867,7 @@
         <p>
           &copy; <span id="current-year">2026</span>
           Son Latino.
-          <span data-i18n="footer_rights">Tous droits réservés.</span>
+          <span data-i18n="footer.rights">Tous droits réservés.</span>
         </p>
       </div>
     </footer>
@@ -850,7 +879,9 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contacter Son Latino sur WhatsApp"
+      data-i18n-aria-label="accessibility.whatsapp"
       data-tooltip="Contactez-nous sur WhatsApp"
+      data-i18n-tooltip="accessibility.tooltipWhatsapp"
     >
       <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     </a>
