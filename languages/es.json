@@ -115,7 +115,8 @@
       "other": "Otro",
       "date": "Fecha deseada",
       "message": "Cuéntanos sobre tu evento",
-      "submit": "Enviar mi solicitud"
+      "submit": "Enviar mi solicitud",
+      "unavailable": "Formulario disponible próximamente"
     }
   },
   "footer": {
@@ -138,6 +139,7 @@
     "facebook": "Página de Facebook de Son Latino",
     "instagram": "Instagram de Son Latino",
     "whatsapp": "Contactar con Son Latino por WhatsApp",
-    "tooltipWhatsapp": "Contáctanos por WhatsApp"
+    "tooltipWhatsapp": "Contáctanos por WhatsApp",
+    "closeMenu": "Cerrar el menú"
   }
 }

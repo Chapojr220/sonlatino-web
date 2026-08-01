@@ -21,17 +21,59 @@ const scrollIndicator = document.querySelector(".scroll-indicator");
 const heroBackground = document.querySelector(".hero-background");
 
 /* =========================================================
-   2. PRÉFÉRENCES D’ACCESSIBILITÉ
+   2. ACCESSIBILITÉ ET TRADUCTIONS DYNAMIQUES
 ========================================================= */
 
-/*
-  Certains utilisateurs préfèrent réduire les animations.
-
-  Dans ce cas, nous désactivons les mouvements importants.
-*/
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
+
+/*
+  Retourne une traduction i18next lorsque la bibliothèque est prête.
+  Sinon, utilise le texte français de secours.
+*/
+function getTranslation(key, fallback) {
+  if (
+    window.i18next &&
+    window.i18next.isInitialized &&
+    window.i18next.exists(key)
+  ) {
+    return window.i18next.t(key);
+  }
+
+  return fallback;
+}
+
+/*
+  Met à jour le libellé accessible du bouton hamburger
+  selon l’état actuel du menu.
+*/
+function updateMenuAccessibility() {
+  if (!menuButton || !navigation) {
+    return;
+  }
+
+  const isOpen = navigation.classList.contains("active");
+
+  const label = isOpen
+    ? getTranslation("accessibility.closeMenu", "Fermer le menu")
+    : getTranslation("accessibility.menu", "Ouvrir le menu");
+
+  menuButton.setAttribute("aria-label", label);
+}
+
+/*
+  Lorsque language.js change l’attribut lang de <html>,
+  on actualise aussi le libellé du menu.
+*/
+const languageObserver = new MutationObserver(() => {
+  updateMenuAccessibility();
+});
+
+languageObserver.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ["lang"],
+});
 
 /* =========================================================
    3. ANNÉE AUTOMATIQUE DANS LE FOOTER
@@ -45,9 +87,6 @@ if (currentYear) {
    4. MENU MOBILE
 ========================================================= */
 
-/*
-  Ouvre ou ferme le menu mobile.
-*/
 function toggleMobileMenu() {
   if (!menuButton || !navigation) {
     return;
@@ -56,21 +95,11 @@ function toggleMobileMenu() {
   const isOpen = navigation.classList.toggle("active");
 
   menuButton.setAttribute("aria-expanded", String(isOpen));
-
-  menuButton.setAttribute(
-    "aria-label",
-    isOpen ? "Fermer le menu" : "Ouvrir le menu",
-  );
-
-  /*
-    Empêche la page située derrière le menu de défiler.
-  */
   document.body.style.overflow = isOpen ? "hidden" : "";
+
+  updateMenuAccessibility();
 }
 
-/*
-  Ferme proprement le menu mobile.
-*/
 function closeMobileMenu() {
   if (!menuButton || !navigation) {
     return;
@@ -78,34 +107,25 @@ function closeMobileMenu() {
 
   navigation.classList.remove("active");
   menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Ouvrir le menu");
-
   document.body.style.overflow = "";
+
+  updateMenuAccessibility();
 }
 
 if (menuButton) {
   menuButton.addEventListener("click", toggleMobileMenu);
 }
 
-/*
-  Ferme le menu après avoir cliqué sur un lien.
-*/
 navigationLinks.forEach((link) => {
   link.addEventListener("click", closeMobileMenu);
 });
 
-/*
-  Ferme le menu lorsque l’utilisateur appuie sur Échap.
-*/
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeMobileMenu();
   }
 });
 
-/*
-  Ferme le menu si l’écran repasse en version ordinateur.
-*/
 window.addEventListener("resize", () => {
   if (window.innerWidth > 860) {
     closeMobileMenu();
@@ -116,10 +136,6 @@ window.addEventListener("resize", () => {
    5. NAVBAR AU SCROLL
 ========================================================= */
 
-/*
-  Rend la navbar légèrement plus compacte et plus opaque
-  lorsque l’utilisateur commence à descendre dans la page.
-*/
 function updateHeaderOnScroll() {
   if (!header) {
     return;
@@ -146,47 +162,38 @@ updateHeaderOnScroll();
    6. LIEN ACTIF DANS LA NAVBAR
 ========================================================= */
 
-/*
-  Repère la section actuellement visible.
+if ("IntersectionObserver" in window) {
+  const sectionObserverOptions = {
+    root: null,
+    rootMargin: "-35% 0px -55% 0px",
+    threshold: 0,
+  };
 
-  Le lien correspondant reçoit la classe "active".
-*/
-const sectionObserverOptions = {
-  root: null,
-  rootMargin: "-35% 0px -55% 0px",
-  threshold: 0,
-};
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) {
-      return;
-    }
+      const sectionId = entry.target.id;
 
-    const sectionId = entry.target.id;
+      navigationLinks.forEach((link) => {
+        const linkTarget = link.getAttribute("href");
 
-    navigationLinks.forEach((link) => {
-      const linkTarget = link.getAttribute("href");
-
-      link.classList.toggle("active", linkTarget === `#${sectionId}`);
+        link.classList.toggle("active", linkTarget === `#${sectionId}`);
+      });
     });
-  });
-}, sectionObserverOptions);
+  }, sectionObserverOptions);
 
-sections.forEach((section) => {
-  sectionObserver.observe(section);
-});
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+}
 
 /* =========================================================
    7. ANIMATIONS D’APPARITION AU SCROLL
 ========================================================= */
 
-/*
-  Liste des éléments qui vont apparaître progressivement.
-
-  Nous appliquons les animations directement avec JavaScript,
-  sans modifier immédiatement le fichier CSS.
-*/
 const revealGroups = [
   {
     selector: ".section-heading",
@@ -230,9 +237,6 @@ const revealGroups = [
   },
 ];
 
-/*
-  Retourne le déplacement initial selon la direction choisie.
-*/
 function getInitialTransform(direction) {
   const distance = 55;
 
@@ -252,20 +256,13 @@ function getInitialTransform(direction) {
   }
 }
 
-/*
-  Prépare un élément avant son entrée dans l’écran.
-*/
 function prepareRevealElement(element, direction) {
   element.dataset.revealDirection = direction;
-
   element.style.opacity = "0";
   element.style.transform = getInitialTransform(direction);
   element.style.willChange = "opacity, transform";
 }
 
-/*
-  Anime l’apparition d’un élément.
-*/
 function revealElement(element, delay = 0) {
   const animation = element.animate(
     [
@@ -297,16 +294,17 @@ function revealElement(element, delay = 0) {
   );
 }
 
-if (!prefersReducedMotion) {
+if (
+  !prefersReducedMotion &&
+  "IntersectionObserver" in window &&
+  "animate" in Element.prototype
+) {
   revealGroups.forEach((group) => {
     const elements = document.querySelectorAll(group.selector);
 
     elements.forEach((element, index) => {
       prepareRevealElement(element, group.direction);
 
-      /*
-        Enregistre le délai calculé pour les groupes de cartes.
-      */
       element.dataset.revealDelay = String(
         group.stagger ? index * group.stagger : 0,
       );
@@ -323,10 +321,6 @@ if (!prefersReducedMotion) {
         const delay = Number(entry.target.dataset.revealDelay || 0);
 
         revealElement(entry.target, delay);
-
-        /*
-          L’élément n’est animé qu’une seule fois.
-        */
         observer.unobserve(entry.target);
       });
     },
@@ -356,12 +350,8 @@ const heroElements = [
   document.querySelector(".hero-features"),
 ].filter(Boolean);
 
-/*
-  Anime progressivement le contenu principal lorsque le site
-  est complètement chargé.
-*/
 function animateHero() {
-  if (prefersReducedMotion) {
+  if (prefersReducedMotion || !("animate" in Element.prototype)) {
     return;
   }
 
@@ -386,9 +376,6 @@ function animateHero() {
     );
   });
 
-  /*
-    Léger zoom cinématographique de l’image principale.
-  */
   if (heroBackground) {
     heroBackground.animate(
       [
@@ -416,12 +403,6 @@ window.addEventListener("load", animateHero);
 
 let parallaxFrame = null;
 
-/*
-  L’image du Hero bouge très légèrement pendant le scroll.
-
-  Le mouvement reste volontairement discret pour conserver
-  une bonne lisibilité.
-*/
 function updateHeroParallax() {
   if (prefersReducedMotion || !heroBackground || window.innerWidth <= 620) {
     return;
@@ -457,7 +438,11 @@ window.addEventListener(
    10. ANIMATION DE L’INDICATEUR DE SCROLL
 ========================================================= */
 
-if (scrollIndicator && !prefersReducedMotion) {
+if (
+  scrollIndicator &&
+  !prefersReducedMotion &&
+  "animate" in Element.prototype
+) {
   scrollIndicator.animate(
     [
       {
@@ -482,11 +467,11 @@ if (scrollIndicator && !prefersReducedMotion) {
    11. ANIMATION DU BOUTON WHATSAPP
 ========================================================= */
 
-if (floatingWhatsApp && !prefersReducedMotion) {
-  /*
-    Le bouton attire discrètement l’attention toutes les
-    quelques secondes sans devenir agressif.
-  */
+if (
+  floatingWhatsApp &&
+  !prefersReducedMotion &&
+  "animate" in Element.prototype
+) {
   window.setInterval(() => {
     floatingWhatsApp.animate(
       [
@@ -518,33 +503,23 @@ if (floatingWhatsApp && !prefersReducedMotion) {
 const serviceCards = document.querySelectorAll(".service-card");
 
 serviceCards.forEach((card) => {
-  /*
-    Effet de profondeur suivant légèrement la souris.
-  */
   card.addEventListener("mousemove", (event) => {
     if (prefersReducedMotion || window.innerWidth <= 860) {
       return;
     }
 
     const cardPosition = card.getBoundingClientRect();
-
     const mouseX = event.clientX - cardPosition.left;
-
     const mouseY = event.clientY - cardPosition.top;
-
     const rotateY = (mouseX / cardPosition.width - 0.5) * 8;
-
     const rotateX = (mouseY / cardPosition.height - 0.5) * -8;
 
     card.style.transform = `perspective(900px)
-       rotateX(${rotateX}deg)
-       rotateY(${rotateY}deg)
-       translateY(-8px)`;
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      translateY(-8px)`;
   });
 
-  /*
-    Replace la carte dans sa position normale.
-  */
   card.addEventListener("mouseleave", () => {
     card.style.transform = "";
   });
@@ -559,9 +534,7 @@ const galleryItems = document.querySelectorAll(".gallery-item");
 galleryItems.forEach((item) => {
   item.addEventListener("mousemove", (event) => {
     const position = item.getBoundingClientRect();
-
     const x = ((event.clientX - position.left) / position.width) * 100;
-
     const y = ((event.clientY - position.top) / position.height) * 100;
 
     item.style.setProperty("--mouse-x", `${x}%`);
@@ -573,12 +546,6 @@ galleryItems.forEach((item) => {
    14. FORMULAIRE DE CONTACT TEMPORAIRE
 ========================================================= */
 
-/*
-  Le formulaire n’est pas encore connecté à une base de
-  données ou à un service d’envoi d’e-mails.
-
-  Nous empêchons donc un faux envoi.
-*/
 if (contactForm) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -590,13 +557,21 @@ if (contactForm) {
     }
 
     const originalText = submitButton.textContent;
+    const unavailableMessage = getTranslation(
+      "contact.form.unavailable",
+      "Formulaire bientôt disponible",
+    );
 
     submitButton.disabled = true;
-    submitButton.textContent = "Formulaire bientôt disponible";
+    submitButton.textContent = unavailableMessage;
 
     window.setTimeout(() => {
       submitButton.disabled = false;
-      submitButton.textContent = originalText;
+
+      submitButton.textContent = getTranslation(
+        "contact.form.submit",
+        originalText,
+      );
     }, 2500);
   });
 }
@@ -605,11 +580,6 @@ if (contactForm) {
    15. SUPPRESSION DU # DANS L’URL APRÈS NAVIGATION
 ========================================================= */
 
-/*
-  Le scroll vers les sections fonctionne normalement,
-  mais nous nettoyons ensuite l’URL pour garder un résultat
-  visuellement propre.
-*/
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", () => {
     window.setTimeout(() => {
@@ -621,3 +591,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }, 700);
   });
 });
+
+/* =========================================================
+   INITIALISATION
+========================================================= */
+
+updateMenuAccessibility();
