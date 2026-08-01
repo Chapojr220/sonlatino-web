@@ -53,10 +53,17 @@
     <!-- Notre fichier CSS principal -->
     <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Notre fichier JavaScript principal, chargé après le HTML -->
-    <script src="js/main.js" defer></script>
+    <!-- Bibliothèque i18next -->
+    <script src="https://unpkg.com/i18next@23.16.5/dist/umd/i18next.min.js"></script>
 
-    <!-- Gestion future du français et de l'espagnol -->
+    <!-- Chargement des fichiers JSON -->
+    <script src="https://unpkg.com/i18next-http-backend@2.6.2/i18nextHttpBackend.min.js"></script>
+
+    <!-- Détection automatique de la langue -->
+    <script src="https://unpkg.com/i18next-browser-languagedetector@8.0.0/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <!-- Nos scripts -->
+    <script src="js/main.js" defer></script>
     <script src="js/language.js" defer></script>
   </head>
 
